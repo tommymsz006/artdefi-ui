@@ -1,0 +1,33 @@
+.dashboard {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 30px;
+}
+
+.artist-card {
+  max-width: 400px;
+  margin-top: 15px;
+}
+
+.finance-card {
+  max-width: 600px;
+  margin-top: 15px;
+  margin-left: 15px;
+}
+
+.mat-form-field {
+  margin-right: 15px;
+  margin-bottom: 10px;
+}
+
+.artworks-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.artwork-card {
+  max-width: 200px;
+  margin: 5px;
+}

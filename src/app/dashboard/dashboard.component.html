@@ -1,0 +1,71 @@
+<mat-toolbar color="primary">ArtDeFi</mat-toolbar>
+<div *ngIf="this.artist" class="dashboard">
+  <mat-card class="artist-card">
+    <mat-card-header>
+      <div mat-card-avatar>
+        <div [innerHTML]="artistIcon"></div>
+      </div>
+      <mat-card-title>Artwork Statistics</mat-card-title>
+      <mat-card-subtitle>{{this.artist.id}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      Total Primary Income: {{this.artist.getTotalPrimaryIncomeInEther()}} ETH
+      <br>
+      Total Royalty: {{this.artist.getTotalRoyaltyInEther()}} ETH
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="finance-card">
+    <mat-card-header>
+      <div mat-card-avatar>
+        <div [innerHTML]="artistIcon"></div>
+      </div>
+      <mat-card-title>Deposit and Loan</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field appearance="fill">
+        <mat-label>Collateral</mat-label>
+        <input matInput placeholder="0.0">
+        <span matSuffix>ETH</span>
+        <mat-hint>Max: </mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Loan</mat-label>
+        <input matInput placeholder="0.0">
+        <span matSuffix>DAI</span>
+        <mat-hint>Max: </mat-hint>
+      </mat-form-field>
+      <button mat-icon-button color="accent">
+        <mat-icon>send</mat-icon>
+      </button>
+    </mat-card-content>
+  </mat-card>
+</div>
+<div *ngIf="this.artist" class="dashboard">
+  <mat-accordion>
+  <mat-expansion-panel *ngFor="let marketplaceArtworks of artworks; let marketplace = index">
+    <mat-expansion-panel-header>
+      <mat-panel-title>{{getMarketplace(marketplace)}} ({{marketplaceArtworks.length}})</mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="artworks-content">
+      <mat-card *ngFor="let artwork of marketplaceArtworks" class="artwork-card" >
+        <mat-card-header>
+          <mat-card-title>{{artwork.name}}</mat-card-title>
+          <mat-card-subtitle>{{artwork.artist}}<br>(Previously Sold: {{artwork.getLastTransferPriceInEther()}} ETH)</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="{{artwork.imageUrl}}">
+        <mat-card-content>
+          <p>
+            {{artwork.description}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <a mat-icon-button href="{{artwork.detailUrl}}" target="_blank" color="accent">
+            <mat-icon>launch</mat-icon>
+          </a>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+</div>
