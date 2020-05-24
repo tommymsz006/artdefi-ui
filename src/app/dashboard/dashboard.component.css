@@ -1,3 +1,8 @@
+.mat-toolbar {
+  font-family: courier;
+  font-size: x-large;
+}
+
 .dashboard {
   display: flex;
   flex-direction: row;
@@ -10,14 +15,36 @@
 }
 
 .finance-card {
-  max-width: 600px;
+  max-width: 500px;
   margin-top: 15px;
   margin-left: 15px;
+}
+
+.finance-card-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.scoring-card {
+  max-width: 500px;
+  margin-top: 15px;
+  margin-left: 15px;
+}
+
+.scoring-card-content {
+  font-size: large;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
 }
 
 .mat-form-field {
   margin-right: 15px;
   margin-bottom: 10px;
+  max-width: 160px;
 }
 
 .artworks-content {

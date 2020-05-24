@@ -21,11 +21,13 @@ export abstract class Artwork {
 
   constructor(id: string, lastTransferPrice: string) {
     this.id = id;
-    this.lastTransferPrice = Web3Utils.toBN(lastTransferPrice);
+    if (lastTransferPrice != undefined && lastTransferPrice !== '') {
+      this.lastTransferPrice = Web3Utils.toBN(lastTransferPrice);
+    }
   }
 
   getLastTransferPriceInEther(): string {
-    return Web3Utils.fromWei(this.lastTransferPrice, 'ether');
+    return (this.lastTransferPrice != undefined) ? Web3Utils.fromWei(this.lastTransferPrice, 'ether') : undefined;
   }
 
   refreshMetadata(uri: string, ipfsMetadataService: IpfsMetadataService) {

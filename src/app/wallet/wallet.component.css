@@ -1,0 +1,10 @@
+.bg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 1000px;
+  min-height: 500px;
+  font-family: courier;
+  font-size: xx-large;
+}

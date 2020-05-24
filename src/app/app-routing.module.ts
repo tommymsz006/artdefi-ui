@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { WalletComponent } from './wallet/wallet.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: '/wallet', pathMatch: 'full' },
+  { path: 'wallet', component: WalletComponent },
   { path: 'dashboard', component: DashboardComponent },
 ];
 

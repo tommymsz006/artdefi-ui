@@ -6,18 +6,12 @@ export class Artist {
   totalPrimaryIncome: BN;
   totalRoyalty: BN;
 
-  constructor(id: string, totalPrimaryIncome: string, totalRoyalty: string) {
+  private readonly ZERO: BN = Web3Utils.toBN('0');
+
+  constructor(id: string) {
     this.id = id;
-    this.totalPrimaryIncome = Web3Utils.toBN(totalPrimaryIncome);
-    this.totalRoyalty = Web3Utils.toBN(totalRoyalty);
-  }
-
-  getTotalPrimaryIncomeInEther(): string {
-    return Web3Utils.fromWei(this.totalPrimaryIncome, 'ether');
-  }
-
-  getTotalRoyaltyInEther(): string {
-    return Web3Utils.fromWei(this.totalRoyalty, 'ether');
+    this.totalPrimaryIncome = this.ZERO;
+    this.totalRoyalty = this.ZERO;
   }
 
   addPrimaryIncome(primaryIncome: string) {
