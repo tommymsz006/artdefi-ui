@@ -89,8 +89,7 @@ export class ArtDeFiService {
   }
 
   populateUserArtworkIncome(): Observable<any> {
-    return from(this._evaluatorContract.methods.populateUserArtworkIncome('0xd656f8d9cb8fa5aeb8b1576161d0488ee2c9c926').send({from: this.getAccount()}));
-    //return from(this._evaluatorContract.methods.populateUserArtworkIncome(this.getAccount()).send({from: this.getAccount()}));
+    return from(this._evaluatorContract.methods.populateUserArtworkIncome(this.getAccount()).send({from: this.getAccount()}));
   }
 
   evaluateScoring(_amount: string): Observable<any> {
